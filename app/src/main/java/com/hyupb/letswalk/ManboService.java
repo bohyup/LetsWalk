@@ -74,16 +74,20 @@ public class ManboService extends Service implements SensorEventListener {
 
                 speed = Math.abs(x + y + z - lastX - lastY - lastZ) / gabOfTime * 10000;
 
-                if (speed > SHAKE_THRESHOLD) {
-                    Log.i("onSensorChanged_IF", "SECOND_IF_IN");
-                    Intent myFilteredResponse = new Intent("com.hyupb.letswalk");
+                if(!StepCount.flag){
+                    if (speed > SHAKE_THRESHOLD) {
+                        Log.i("onSensorChanged_IF", "SECOND_IF_IN");
+                        Intent myFilteredResponse = new Intent("com.hyupb.letswalk");
 
-                    StepCount.Step = count++;
 
-                    String msg = StepCount.Step / 2 + "";
-                    myFilteredResponse.putExtra("stepService", msg);
+                        StepCount.Step = count++;
 
-                    sendBroadcast(myFilteredResponse);
+                        String msg = StepCount.Step / 2 + "";
+                        myFilteredResponse.putExtra("stepService", msg);
+
+                        sendBroadcast(myFilteredResponse);
+                    }
+
                 } // end of if
 
                 lastX = event.values[0];

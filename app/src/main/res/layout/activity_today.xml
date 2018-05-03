@@ -9,10 +9,11 @@
     android:background="@color/colorPuple">
 
         <ImageView
-            android:layout_width="70dp"
-            android:layout_height="70dp"
+            android:id="@+id/today_reset_iv"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
             android:layout_alignParentRight="true"
-            android:src="@android:drawable/ic_menu_more"
+            android:src="@android:drawable/stat_notify_sync_noanim"
             android:clickable="true"
             />
 
@@ -20,7 +21,7 @@
             android:id="@+id/today_waveLoadingView"
             android:layout_width="300dp"
             android:layout_height="300dp"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="30dp"
             android:layout_centerHorizontal="true"
             app:wlv_borderColor="#667788"
             app:wlv_borderWidth="3dp"

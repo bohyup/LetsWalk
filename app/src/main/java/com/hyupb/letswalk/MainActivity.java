@@ -1,16 +1,14 @@
 package com.hyupb.letswalk;
 
-import android.app.Service;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
-import android.os.IBinder;
+import android.content.SharedPreferences;
 import android.support.v4.app.FragmentTabHost;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.CardView;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
@@ -31,7 +29,8 @@ public class MainActivity extends AppCompatActivity {
 
     Intent manboService;
     BroadcastReceiver receiver;
-    boolean flag = true;
+
+    boolean flag = StepCount.flag;
     String serviceData;
     int stepCount;
     int finalStep = StepCount.finalStep;
@@ -47,6 +46,14 @@ public class MainActivity extends AppCompatActivity {
     TextView kmTv;
     TextView kcalTv;
     TextView timeTv;
+
+    public Intent getManboService() {
+        return manboService;
+    }
+
+    public BroadcastReceiver getReceiver() {
+        return receiver;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -110,13 +117,18 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        if(!flag){
+            IntentFilter mainFilter = new IntentFilter("com.hyupb.letswalk");
+            registerReceiver(receiver, mainFilter);
+        }
+
     }
 
     @Override
     protected void onResume() {
         super.onResume();
 
-
+        flag = StepCount.flag;
     }
 
     class PlayingReceiver extends BroadcastReceiver {
@@ -163,6 +175,14 @@ public class MainActivity extends AppCompatActivity {
                            walkingTimeS = walkingTimeS%60d;
                         }
 
+                        //계산값 static에 저장
+                        StepCount.Step = stepCount;
+                        StepCount.km = km;
+                        StepCount.kcal = kcal;
+                        StepCount.walkingTimeM = walkingTimeM;
+                        StepCount.walkingTimeS = walkingTimeS;
+                        StepCount.flag = flag;
+
 
                         runOnUiThread(new Runnable() {
                             @Override
@@ -182,6 +202,16 @@ public class MainActivity extends AppCompatActivity {
                                     }
                                 }
 
+                                if(!flag){
+                                    pauseBtn = pager.getChildAt(0).findViewById(R.id.today_pause_btn);
+                                    pauseBtn.setImageResource(android.R.drawable.ic_media_pause);
+
+                                    pauseText = pager.getChildAt(0).findViewById(R.id.today_pause_tv);
+                                    pauseText.setText("pause");
+
+                                    IntentFilter mainFilter = new IntentFilter("com.hyupb.letswalk");
+                                    registerReceiver(receiver, mainFilter);
+                                }
                             }
                         });
                     }
@@ -198,6 +228,9 @@ public class MainActivity extends AppCompatActivity {
 
     //일시정지 버튼
     public void clickSP(View v){
+
+        waveLoadingView = pager.getChildAt(0).findViewById(R.id.today_waveLoadingView);
+
                 if (flag) {
                     try {
                         pauseBtn = pager.getChildAt(0).findViewById(R.id.today_pause_btn);
@@ -205,6 +238,10 @@ public class MainActivity extends AppCompatActivity {
 
                         pauseText = pager.getChildAt(0).findViewById(R.id.today_pause_tv);
                         pauseText.setText("pause");
+
+                        flag = false;
+
+                        waveLoadingView.setBottomTitle("");
 
                         IntentFilter mainFilter = new IntentFilter("com.hyupb.letswalk");
                         registerReceiver(receiver, mainFilter);
@@ -216,19 +253,28 @@ public class MainActivity extends AppCompatActivity {
 
                 } else {
                     try {
+                        pauseBtn = pager.getChildAt(0).findViewById(R.id.today_pause_btn);
                         pauseBtn.setImageResource(android.R.drawable.ic_media_play);
+
+                        pauseText = pager.getChildAt(0).findViewById(R.id.today_pause_tv);
                         pauseText.setText("play");
 
-                        unregisterReceiver(receiver);
-                        stopService(manboService);
+                        flag = true;
+
+                        waveLoadingView.setBottomTitle("pause");
+
+//                        unregisterReceiver(receiver);
+//                        stopService(manboService);
 
                     } catch (Exception e) {
                         Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_LONG).show();
                     }
                 }
 
-                flag = !flag;
+                StepCount.flag = flag;
+
     }
+
 }
 
 

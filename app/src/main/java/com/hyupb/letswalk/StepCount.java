@@ -16,4 +16,6 @@ public class StepCount {
     public static double kcal = 0d;
     public static int walkingTimeM = 0;
     public static double walkingTimeS = 0;
+
+    public static boolean flag=true;
 }
