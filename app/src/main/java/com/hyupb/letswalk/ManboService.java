@@ -8,6 +8,9 @@ import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.os.IBinder;
 import android.util.Log;
+import android.widget.Toast;
+
+import java.util.Calendar;
 
 /**
  * Created by alfo6-18 on 2018-04-27.
@@ -28,12 +31,19 @@ public class ManboService extends Service implements SensorEventListener {
     private SensorManager sensorManager;
     private Sensor accelerometerSensor;
 
+    private Calendar selectionCa;
+    private Calendar todayCa;
+    private boolean save = true;
+
     @Override
     public void onCreate() {
         super.onCreate();
         Log.i("onCreate", "IN");
         sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
         accelerometerSensor = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
+
+        selectionCa = Calendar.getInstance();
+        selectionCa.set(Calendar.HOUR_OF_DAY,23);
     } // end of onCreate
 
     @Override
@@ -89,10 +99,25 @@ public class ManboService extends Service implements SensorEventListener {
                     }
 
                 } // end of if
-
                 lastX = event.values[0];
                 lastY = event.values[1];
                 lastZ = event.values[2];
+
+                //24시 될때마다 저장
+                todayCa = Calendar.getInstance();
+
+                if(save) {
+                    if (selectionCa.get(Calendar.HOUR_OF_DAY) == todayCa.get(Calendar.HOUR_OF_DAY)) {
+
+                        save = false;
+                    }
+                }else {
+                    if(selectionCa.get(Calendar.HOUR_OF_DAY) != todayCa.get(Calendar.HOUR_OF_DAY)){
+                        save = true;
+                    }
+                }
+                /////////////////////////////////////////////////화요일에 날짜 static배열에 집어넣기...
+
             } // end of if
         } // end of if
 

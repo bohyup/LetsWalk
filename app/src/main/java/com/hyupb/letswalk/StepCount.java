@@ -18,4 +18,7 @@ public class StepCount {
     public static double walkingTimeS = 0;
 
     public static boolean flag=true;
+
+    //요일 배열
+    public static String[] days = {"monday","tuesday","Wednesday","thursday","friday","saturday","sunday"};
 }
