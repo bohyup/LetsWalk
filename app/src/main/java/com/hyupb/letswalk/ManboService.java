@@ -106,8 +106,17 @@ public class ManboService extends Service implements SensorEventListener {
                 //24시 될때마다 저장
                 todayCa = Calendar.getInstance();
 
+
                 if(save) {
                     if (selectionCa.get(Calendar.HOUR_OF_DAY) == todayCa.get(Calendar.HOUR_OF_DAY)) {
+                        for(int i=0;i<7;i++){
+                            if(todayCa.get(Calendar.DAY_OF_WEEK) == (i+1)){
+                                StepCount.days[i] = StepCount.todayStep;
+                                StepCount.Step=0;
+                                break;
+                            }
+                        }
+
 
                         save = false;
                     }

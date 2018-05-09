@@ -6,17 +6,34 @@
     android:layout_height="match_parent"
     tools:context="com.hyupb.letswalk.Report"
     android:orientation="vertical"
-    android:weightSum="2">
+    android:weightSum="2"
+    android:padding="16dp">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1">
 
-        <com.github.mikephil.charting.charts.LineChart
-            android:id="@+id/chart"
+        <lecho.lib.hellocharts.view.LineChartView
+            android:id="@+id/days_chart"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            android:padding="8dp"
+            android:background="@color/colorDarkBlue"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <lecho.lib.hellocharts.view.LineChartView
+            android:id="@+id/weeks_chart"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="8dp"
+            android:background="@color/colorDarkBlue"/>
 
     </RelativeLayout>
 

@@ -8,6 +8,7 @@ public class StepCount {
     public static int Step = 0;
     public static int finalStep = 100;
     public static int achievementToday = 1;
+    public static int todayStep = 0;
 
 
     public static int cm = 170;
@@ -20,5 +21,8 @@ public class StepCount {
     public static boolean flag=true;
 
     //요일 배열
-    public static String[] days = {"monday","tuesday","Wednesday","thursday","friday","saturday","sunday"};
+    public static int[] days = {1,0,0,0,0,0,0};//일요일부터 시작
+
+    //주 배열
+    public static int[] month = {0,1,0};//전달 이번달 다음달
 }

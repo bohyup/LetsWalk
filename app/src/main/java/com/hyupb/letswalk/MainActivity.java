@@ -144,7 +144,7 @@ public class MainActivity extends AppCompatActivity {
 
             serviceData = intent.getStringExtra("stepService");
             stepCount = Integer.parseInt(serviceData);
-
+            StepCount.todayStep = stepCount;
 
 
 //        이동거리(m) = ((키(cm) - 100)  * 걸음수)/100
