@@ -26,10 +26,11 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1">
+        android:layout_weight="1"
+        android:paddingTop="8dp">
 
         <lecho.lib.hellocharts.view.LineChartView
-            android:id="@+id/weeks_chart"
+            android:id="@+id/month_chart"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:padding="8dp"

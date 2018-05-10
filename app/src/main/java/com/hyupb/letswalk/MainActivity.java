@@ -184,6 +184,7 @@ public class MainActivity extends AppCompatActivity {
                         StepCount.flag = flag;
 
 
+
                         runOnUiThread(new Runnable() {
                             @Override
                             public void run() {

@@ -2,6 +2,7 @@ package com.hyupb.letswalk;
 
 import android.app.Service;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
@@ -109,14 +110,22 @@ public class ManboService extends Service implements SensorEventListener {
 
                 if(save) {
                     if (selectionCa.get(Calendar.HOUR_OF_DAY) == todayCa.get(Calendar.HOUR_OF_DAY)) {
+
+                        SharedPreferences sharedPreferences = getApplicationContext().getSharedPreferences("Data",MODE_PRIVATE);
+                        SharedPreferences.Editor editor = sharedPreferences.edit();
+
+                        editor.putInt(todayCa.get(Calendar.MONTH)+"month",sharedPreferences.getInt(todayCa.get(Calendar.MONTH)+"month",0)+StepCount.todayStep);
+                        editor.putInt((todayCa.get(Calendar.DAY_OF_WEEK)-1)+"day",StepCount.todayStep);
+                        editor.commit();
+
                         for(int i=0;i<7;i++){
                             if(todayCa.get(Calendar.DAY_OF_WEEK) == (i+1)){
                                 StepCount.days[i] = StepCount.todayStep;
+
                                 StepCount.Step=0;
                                 break;
                             }
                         }
-
 
                         save = false;
                     }
@@ -125,7 +134,6 @@ public class ManboService extends Service implements SensorEventListener {
                         save = true;
                     }
                 }
-                /////////////////////////////////////////////////화요일에 날짜 static배열에 집어넣기...
 
             } // end of if
         } // end of if

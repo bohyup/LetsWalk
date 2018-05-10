@@ -23,6 +23,4 @@ public class StepCount {
     //요일 배열
     public static int[] days = {1,0,0,0,0,0,0};//일요일부터 시작
 
-    //주 배열
-    public static int[] month = {0,1,0};//전달 이번달 다음달
 }
