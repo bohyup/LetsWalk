@@ -65,7 +65,7 @@ public class Report extends Fragment {
 
 
         daysChart.setLineChartData(data);
-        //여까지 일차트//////////////////////////////////////////////////////////////
+        //여까지 일차트//////////////////////////////////////////////////////////////c
 
         int[] month = {0,0,0,0,0,0,0,0,0,0,0,0};
         for(int i=0;i<month.length;i++){
