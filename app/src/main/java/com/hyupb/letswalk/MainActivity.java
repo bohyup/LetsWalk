@@ -122,6 +122,20 @@ public class MainActivity extends AppCompatActivity {
             registerReceiver(receiver, mainFilter);
         }
 
+        SharedPreferences pref = getSharedPreferences("Data",MODE_PRIVATE);
+        boolean first = pref.getBoolean("isFirst", false);
+
+
+        if(first==false){
+            new LoginDialog(this).show();
+
+        }else{
+            Log.d("Is first Time?", "not first");
+        }
+
+
+
+
     }
 
     @Override

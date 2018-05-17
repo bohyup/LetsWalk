@@ -39,7 +39,7 @@ public class ManboService extends Service implements SensorEventListener {
     @Override
     public void onCreate() {
         super.onCreate();
-        Log.i("onCreate", "IN");
+//        Log.i("onCreate", "IN");
         sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
         accelerometerSensor = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
 
@@ -50,7 +50,7 @@ public class ManboService extends Service implements SensorEventListener {
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
         super.onStartCommand(intent, flags, startId);
-        Log.i("onStartCommand", "IN");
+//        Log.i("onStartCommand", "IN");
         if (accelerometerSensor != null) {
             sensorManager.registerListener(this, accelerometerSensor, SensorManager.SENSOR_DELAY_GAME);
         } // end of if
@@ -61,7 +61,7 @@ public class ManboService extends Service implements SensorEventListener {
     @Override
     public void onDestroy() {
         super.onDestroy();
-        Log.i("onDestroy", "IN");
+//        Log.i("onDestroy", "IN");
         if (sensorManager != null) {
             sensorManager.unregisterListener(this);
             StepCount.Step = 0;
@@ -70,13 +70,13 @@ public class ManboService extends Service implements SensorEventListener {
 
     @Override
     public void onSensorChanged(SensorEvent event) {
-        Log.i("onSensorChanged", "IN");
+//        Log.i("onSensorChanged", "IN");
         if (event.sensor.getType() == Sensor.TYPE_ACCELEROMETER) {
             long currentTime = System.currentTimeMillis();
             long gabOfTime = (currentTime - lastTime);
 
             if (gabOfTime > 100) { //  gap of time of step count
-                Log.i("onSensorChanged_IF", "FIRST_IF_IN");
+//                Log.i("onSensorChanged_IF", "FIRST_IF_IN");
                 lastTime = currentTime;
 
                 x = event.values[0];
@@ -87,7 +87,7 @@ public class ManboService extends Service implements SensorEventListener {
 
                 if(!StepCount.flag){
                     if (speed > SHAKE_THRESHOLD) {
-                        Log.i("onSensorChanged_IF", "SECOND_IF_IN");
+//                        Log.i("onSensorChanged_IF", "SECOND_IF_IN");
                         Intent myFilteredResponse = new Intent("com.hyupb.letswalk");
 
 
