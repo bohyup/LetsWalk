@@ -69,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
 
         tabHost.addTab(tabHost.newTabSpec("today").setIndicator("TODAY"),DummyFragment.class,null);
         tabHost.addTab(tabHost.newTabSpec("report").setIndicator("REPORT"),DummyFragment.class,null);
-        tabHost.addTab(tabHost.newTabSpec("trails").setIndicator("TRAILS"),DummyFragment.class,null);
+        tabHost.addTab(tabHost.newTabSpec("trails").setIndicator("HEALTH NEWS"),DummyFragment.class,null);
         tabHost.addTab(tabHost.newTabSpec("more").setIndicator("MORE"),DummyFragment.class,null);
 
 
@@ -127,7 +127,9 @@ public class MainActivity extends AppCompatActivity {
 
 
         if(first==false){
-            new LoginDialog(this).show();
+            LoginDialog loginDialog = new LoginDialog(this);
+            loginDialog.setCanceledOnTouchOutside(false);
+            loginDialog.show();
 
         }else{
             Log.d("Is first Time?", "not first");

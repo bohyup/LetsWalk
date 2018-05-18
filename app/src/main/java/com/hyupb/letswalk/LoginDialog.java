@@ -1,11 +1,9 @@
 package com.hyupb.letswalk;
 
+import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.SharedPreferences;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.util.Log;
 import android.view.View;
 import android.view.Window;
@@ -27,7 +25,7 @@ public class LoginDialog extends Dialog{
     public LoginDialog(Context context) {
         super(context);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
-        getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));  //다이얼로그의 배경 투명
+//        getWindow().setBackgroundDrawable(new ColorDrawable(Color.BLACK));
         setContentView(R.layout.login_dialog);
 
         dgName = findViewById(R.id.login_name);
@@ -70,7 +68,7 @@ public class LoginDialog extends Dialog{
                 case R.id.login_exit:
                     dismiss();
 
-
+                    Toast.makeText(getContext(), "기본값으로 설정됩니다", Toast.LENGTH_SHORT).show();
                     break;
             }
         }
