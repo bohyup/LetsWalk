@@ -5,6 +5,7 @@ import android.content.Context;
 import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,6 +26,8 @@ public class MyListAdapter extends ArrayAdapter<String> {
     Context context;
     ArrayList<String> items;
     int i=0;
+
+    int newsNum;
 
 
     public MyListAdapter(@NonNull Context context, int resource, ArrayList<String> items) {
@@ -47,10 +50,6 @@ public class MyListAdapter extends ArrayAdapter<String> {
         TextView contentTv = listItem.findViewById(R.id.item_content);
         TextView sourceTv = listItem.findViewById(R.id.item_source);
 
-
-
-
-
             String[] item = items.get(i).split("&");
 
             Glide.with(context).load(item[0]).into(iv);
@@ -58,8 +57,14 @@ public class MyListAdapter extends ArrayAdapter<String> {
             contentTv.setText(item[2]);
             sourceTv.setText(item[3]);
 
+            //한번만 받아오기(일단 임시방편으로 오류막음)
+            if(i==0)
+            newsNum = Integer.parseInt(item[4]);
+
+            Log.i("newsNum",newsNum+"");
+
             i++;
-            if(i==15)
+            if(i>newsNum)
                 i=0;
 
 
