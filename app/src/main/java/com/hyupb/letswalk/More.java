@@ -113,6 +113,7 @@ public class More extends Fragment {
                 case R.id.more_rank:
                     loadRanking();
 
+
                     break;
             }
 
@@ -121,9 +122,10 @@ public class More extends Fragment {
 
     void loadRanking(){
 
+        rankingDialog dialog = new rankingDialog(getContext());
+        dialog.setCanceledOnTouchOutside(false);
 
-
-
+        dialog.show();
     }
 
 }

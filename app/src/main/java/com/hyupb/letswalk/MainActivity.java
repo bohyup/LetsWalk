@@ -78,6 +78,7 @@ public class MainActivity extends AppCompatActivity {
         pager.setAdapter(adapter);
 
 
+
         //탭버튼을 선택했을때 ViewPager의 현재페이지 변경작업
         tabHost.setOnTabChangedListener(new TabHost.OnTabChangeListener() {
             @Override
@@ -124,6 +125,7 @@ public class MainActivity extends AppCompatActivity {
 
         SharedPreferences pref = getSharedPreferences("Data",MODE_PRIVATE);
         boolean first = pref.getBoolean("isFirst", false);
+//        StepCount.finalStep = pref.getInt("finalStep",6000);
 
 
         if(first==false){
