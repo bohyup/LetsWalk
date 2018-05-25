@@ -1,13 +1,13 @@
 package com.hyupb.letswalk;
 
-import android.app.Activity;
+
 import android.app.Dialog;
 import android.content.Context;
+import android.os.Handler;
+import android.os.Message;
 import android.view.View;
 import android.view.Window;
-import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -98,7 +98,9 @@ public class rankingDialog extends Dialog {
                             if(i==9) break;
                         }
 
-                    tv.setText(rankingBuffer.toString());
+                    Message msg = handler.obtainMessage();
+                    handler.sendMessage(msg);
+
 
                 } catch (MalformedURLException e) {
                     e.printStackTrace();
@@ -108,8 +110,19 @@ public class rankingDialog extends Dialog {
             }
         }.start();
 
-
     }
 
+    final Handler handler = new Handler() {
+        public void handleMessage(Message msg) {
 
+            tv.setText(rankingBuffer.toString());
+        }
+    };
+
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+    }
 }

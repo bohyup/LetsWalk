@@ -25,7 +25,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="사용자명    : "
+            android:text="name           : "
             android:gravity="center"
             android:textColor="@color/colorGray"/>
 
@@ -47,7 +47,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="몸무게(kg) : "
+            android:text="weight(kg)  : "
             android:gravity="center"
             android:textColor="@color/colorGray"/>
 
@@ -56,7 +56,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center"
-            android:textColor="@color/colorGray"/>
+            android:textColor="@color/colorGray"
+            android:inputType="number"/>
 
     </LinearLayout>
 
@@ -69,7 +70,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="키(cm)       : "
+            android:text="Height(cm)  : "
             android:gravity="center"
             android:textColor="@color/colorGray"/>
 
@@ -78,7 +79,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center"
-            android:textColor="@color/colorGray"/>
+            android:textColor="@color/colorGray"
+            android:inputType="number"/>
 
     </LinearLayout>
 
@@ -91,7 +93,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="목표 걸음    : "
+            android:text="Goal Steps   : "
             android:gravity="center"
             android:textColor="@color/colorGray"/>
 
@@ -100,7 +102,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center"
-            android:textColor="@color/colorGray"/>
+            android:textColor="@color/colorGray"
+            android:inputType="number"/>
 
     </LinearLayout>
 
@@ -110,7 +113,7 @@
         android:layout_weight="1">
 
         <TextView
-            android:id="@+id/login_login"
+            android:id="@+id/my_currect"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:text="Currect"
@@ -119,12 +122,12 @@
             android:textColor="@color/colorGray"/>
 
         <TextView
-            android:id="@+id/login_exit"
+            android:id="@+id/my_close"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:padding="12dp"
             android:layout_alignParentRight="true"
-            android:text="EXIT"
+            android:text="Close"
             android:clickable="true"
             android:textColor="@color/colorGray"/>
 

@@ -17,7 +17,7 @@
             android:layout_height="80dp"
             android:textSize="40sp"
             android:gravity="center"
-            android:text="내 정보" />
+            android:text="MY Info" />
 
         <TextView
             android:id="@+id/more_score_upload"
@@ -25,7 +25,7 @@
             android:layout_height="80dp"
             android:textSize="40sp"
             android:gravity="center"
-            android:text="내 점수 등록"/>
+            android:text="Upload Steps"/>
 
         <TextView
             android:id="@+id/more_rank"
@@ -33,7 +33,7 @@
             android:layout_height="80dp"
             android:textSize="40sp"
             android:gravity="center"
-            android:text="순위 보기" />
+            android:text="Ranking" />
 
     </LinearLayout>
 

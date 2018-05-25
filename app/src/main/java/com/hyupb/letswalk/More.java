@@ -1,7 +1,7 @@
 package com.hyupb.letswalk;
 
-import android.app.Activity;
 import android.content.SharedPreferences;
+import android.graphics.Typeface;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
@@ -29,6 +29,8 @@ public class More extends Fragment {
     private String name;
     private int step;
 
+    Typeface typeFace;
+
 
     public String getName() {
         return name;
@@ -51,9 +53,16 @@ public class More extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.activity_more,container,false);
 
+        //폰트추가
+        typeFace = Typeface.createFromAsset(view.getContext().getAssets(), "NanumPen.ttf");
+
         info = view.findViewById(R.id.more_info);
         scoreUpload = view.findViewById(R.id.more_score_upload);
         rank = view.findViewById(R.id.more_rank);
+
+        info.setTypeface(typeFace);
+        scoreUpload.setTypeface(typeFace);
+        rank.setTypeface(typeFace);
 
         info.setOnClickListener(moreListner);
         scoreUpload.setOnClickListener(moreListner);
@@ -61,7 +70,7 @@ public class More extends Fragment {
 
         SharedPreferences pref = getContext().getSharedPreferences("Data",MODE_PRIVATE);
 
-        name = pref.getString("name","홍길동");
+        name = pref.getString("name","no name");
         step = StepCount.todayStep;
 
         return view;
@@ -75,6 +84,15 @@ public class More extends Fragment {
 
             switch (view.getId()){
                 case R.id.more_info:
+
+                    SharedPreferences pref = getContext().getSharedPreferences("Data",MODE_PRIVATE);
+
+                    String name1 = getName();
+                    int kg = pref.getInt("kg",70);
+                    int cm = pref.getInt("cm",170);
+                    int finalStep = pref.getInt("finalStep",5000);
+
+                    new MyInfoDialog(getContext(),name1,kg,cm,finalStep).show();
 
                     break;
 

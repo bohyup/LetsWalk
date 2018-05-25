@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.hyupb.letswalk">
 
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
     <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
@@ -27,10 +28,7 @@
             </intent-filter>
         </service>
 
-        <!--<activity android:name=".Today" />-->
-        <!--<activity android:name=".Report" />-->
-        <!--<activity android:name=".More" />-->
-        <!--<activity android:name=".WalkingTrails"></activity>-->
+
     </application>
 
 </manifest>
