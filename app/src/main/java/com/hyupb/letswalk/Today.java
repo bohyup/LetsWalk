@@ -4,6 +4,7 @@ package com.hyupb.letswalk;
 import android.content.BroadcastReceiver;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Typeface;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
@@ -31,10 +32,17 @@ public class Today extends Fragment {
     Intent manboService;
     BroadcastReceiver receiver;
 
+    Typeface typeFace;
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.activity_today,container,false);
+
+        //폰트추가
+        typeFace = Typeface.createFromAsset(view.getContext().getAssets(), "NanumPen.ttf");
+
+
 
         SharedPreferences pref = getContext().getSharedPreferences("Data",MODE_PRIVATE);
         StepCount.Step = pref.getInt("step",0);
@@ -65,7 +73,12 @@ public class Today extends Fragment {
         kcalTv = getView().findViewById(R.id.today_Kcal_tv);
         timeTv = getView().findViewById(R.id.today_time_tv);
 
-        waveLoadingView.setTopTitle("목표 걸음 수 : "+StepCount.finalStep);
+        //폰트추가
+        kcalTv.setTypeface(typeFace);
+        kmTv.setTypeface(typeFace);
+        timeTv.setTypeface(typeFace);
+
+        waveLoadingView.setTopTitle("Goal Steps : "+StepCount.finalStep);
         waveLoadingView.setCenterTitle(StepCount.Step+"");
         waveLoadingView.setProgressValue((StepCount.achievementToday-1)*10);
         kmTv.setText(StepCount.km+"");

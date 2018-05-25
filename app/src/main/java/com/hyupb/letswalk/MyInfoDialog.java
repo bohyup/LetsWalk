@@ -16,26 +16,32 @@ import static android.content.Context.MODE_PRIVATE;
  * Created by alfo6-18 on 2018-05-17.
  */
 
-public class LoginDialog extends Dialog{
+public class MyInfoDialog extends Dialog{
 
-    EditText dgName,dgKg,dgCm;
-    TextView login,exit;
+    EditText dgName,dgKg,dgCm,dgFS;
+    TextView currect,close;
 
-    public LoginDialog(Context context) {
+    public MyInfoDialog(Context context,String name,int kg,int cm,int fs) {
         super(context);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
 //        getWindow().setBackgroundDrawable(new ColorDrawable(Color.BLACK));
-        setContentView(R.layout.login_dialog);
+        setContentView(R.layout.dialog_myinfo);
 
-        dgName = findViewById(R.id.login_name);
-        dgKg = findViewById(R.id.login_kg);
-        dgCm = findViewById(R.id.login_cm);
+        dgName = findViewById(R.id.my_name);
+        dgKg = findViewById(R.id.my_kg);
+        dgCm = findViewById(R.id.my_cm);
+        dgFS = findViewById(R.id.my_goal);
 
-        login = findViewById(R.id.login_login);
-        exit = findViewById(R.id.login_exit);
+        currect = findViewById(R.id.my_currect);
+        close = findViewById(R.id.my_close);
 
-        login.setOnClickListener(dgListner);
-        exit.setOnClickListener(dgListner);
+        currect.setOnClickListener(dgListner);
+        close.setOnClickListener(dgListner);
+
+        dgName.setText(name);
+        dgKg.setText(kg+"");
+        dgCm.setText(cm+"");
+        dgFS.setText(fs+"");
 
     }
 
@@ -44,18 +50,18 @@ public class LoginDialog extends Dialog{
         public void onClick(View view) {
             switch (view.getId()){
 
-                case R.id.login_login:
+                case R.id.my_currect:
                     SharedPreferences pref = getContext().getSharedPreferences("Data",MODE_PRIVATE);
-
-                    Log.d("Is first Time?", "first");
                     SharedPreferences.Editor editor = pref.edit();
 
                     if(!(dgKg.getText().toString().isEmpty())) {
                         editor.putString("name", dgName.getText().toString());
                         editor.putInt("kg", Integer.parseInt(dgKg.getText().toString()));
                         editor.putInt("cm", Integer.parseInt(dgCm.getText().toString()));
-                        editor.putBoolean("isFirst", true);
+                        editor.putInt("finalStep",Integer.parseInt(dgFS.getText().toString()));
                         editor.commit();
+
+                        Toast.makeText(getContext(), "수정되었습니다", Toast.LENGTH_SHORT).show();
 
                         dismiss();
                     }else
@@ -64,10 +70,8 @@ public class LoginDialog extends Dialog{
 
                     break;
 
-                case R.id.login_exit:
+                case R.id.my_close:
                     dismiss();
-
-                    Toast.makeText(getContext(), "기본값으로 설정됩니다", Toast.LENGTH_SHORT).show();
                     break;
             }
         }

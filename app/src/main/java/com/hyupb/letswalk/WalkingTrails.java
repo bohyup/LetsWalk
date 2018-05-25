@@ -39,6 +39,8 @@ public class WalkingTrails extends Fragment {
 
     ArrayList<String> items = new ArrayList<>();
 
+    int newsNum;
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -62,6 +64,9 @@ public class WalkingTrails extends Fragment {
                         try {
                             JSONObject jsonObject = readJsonFromUrl(walkUrl);
 
+                            newsNum = jsonObject.getInt("totalResults");
+
+
                             JSONArray jsonArray = new JSONArray((jsonObject.getJSONArray("articles")).toString());
                             Log.i("aa",jsonArray.toString());
 
@@ -75,14 +80,10 @@ public class WalkingTrails extends Fragment {
 
                                 String a = "";
 
-                                a = imgUrl +"&"+title+"&"+content+"&"+source;
+                                a = imgUrl +"&"+title+"&"+content+"&"+source +"&"+newsNum;
 
                                 items.add(a);
 
-//                                items.add(imgUrl);
-//                                items.add(title);
-//                                items.add(content);
-//                                items.add(source);
                             }
 
                             ((Activity)getContext()).runOnUiThread(new Runnable() {

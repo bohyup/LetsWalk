@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="300dp"
+    android:layout_height="400dp"
+    android:layout_gravity="center"
+    android:background="@android:color/black"
+    android:padding="8dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:text="순위표"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:textColor="@color/colorGray"
+        android:layout_gravity="center_horizontal"/>
+
+    <TextView
+        android:id="@+id/ranking_tv"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:paddingTop="8dp"
+        android:paddingLeft="60dp"
+        android:textColor="@color/colorGray"
+        android:textSize="24sp"/>
+
+    <TextView
+        android:id="@+id/ranking_tv_ok"
+        android:layout_width="wrap_content"
+        android:layout_height="32dp"
+        android:text="OK"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:textColor="@color/colorGray"
+        android:layout_gravity="right"
+        android:clickable="true"/>
+
+
+</LinearLayout>

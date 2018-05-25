@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="200dp"
-    android:layout_height="250dp"
+    android:layout_height="300dp"
     android:layout_gravity="center"
-    android:weightSum="5"
+    android:weightSum="6"
     android:background="@android:color/black"
     android:padding="8dp">
 
@@ -11,7 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:text="Login"
+        android:text="My Info"
         android:layout_gravity="center"
         android:gravity="center"
         android:textColor="@color/colorGray"/>
@@ -25,12 +25,12 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="Name          : "
+            android:text="name           : "
             android:gravity="center"
             android:textColor="@color/colorGray"/>
 
         <EditText
-            android:id="@+id/login_name"
+            android:id="@+id/my_name"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center"
@@ -47,12 +47,12 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="Weight(kg) : "
+            android:text="weight(kg)  : "
             android:gravity="center"
             android:textColor="@color/colorGray"/>
 
         <EditText
-            android:id="@+id/login_kg"
+            android:id="@+id/my_kg"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center"
@@ -70,12 +70,35 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="Height(cm) : "
+            android:text="Height(cm)  : "
             android:gravity="center"
             android:textColor="@color/colorGray"/>
 
         <EditText
-            android:id="@+id/login_cm"
+            android:id="@+id/my_cm"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:textColor="@color/colorGray"
+            android:inputType="number"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="Goal Steps   : "
+            android:gravity="center"
+            android:textColor="@color/colorGray"/>
+
+        <EditText
+            android:id="@+id/my_goal"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center"
@@ -90,21 +113,21 @@
         android:layout_weight="1">
 
         <TextView
-            android:id="@+id/login_login"
+            android:id="@+id/my_currect"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="LOGIN"
-            android:padding="16dp"
+            android:text="Currect"
+            android:padding="12dp"
             android:clickable="true"
             android:textColor="@color/colorGray"/>
 
         <TextView
-            android:id="@+id/login_exit"
+            android:id="@+id/my_close"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:padding="16dp"
+            android:padding="12dp"
             android:layout_alignParentRight="true"
-            android:text="EXIT"
+            android:text="Close"
             android:clickable="true"
             android:textColor="@color/colorGray"/>
 
