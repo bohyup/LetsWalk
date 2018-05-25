@@ -74,7 +74,6 @@ public class Today extends Fragment {
         timeTv = getView().findViewById(R.id.today_time_tv);
 
         //폰트추가
-        pauseText.setTypeface(typeFace);
         kcalTv.setTypeface(typeFace);
         kmTv.setTypeface(typeFace);
         timeTv.setTypeface(typeFace);
