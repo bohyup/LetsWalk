@@ -4,7 +4,7 @@
     android:layout_height="300dp"
     android:layout_gravity="center"
     android:weightSum="6"
-    android:background="@android:color/black"
+    android:background="@color/colorDarkBlue"
     android:padding="8dp">
 
     <TextView

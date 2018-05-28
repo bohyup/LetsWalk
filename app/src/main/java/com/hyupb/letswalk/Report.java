@@ -1,7 +1,6 @@
 package com.hyupb.letswalk;
 
 import android.content.SharedPreferences;
-import android.graphics.Color;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
@@ -9,7 +8,6 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -53,7 +51,7 @@ public class Report extends Fragment {
         }
 
 
-        Line line = new Line(values).setColor(Color.BLUE).setCubic(true);
+        Line line = new Line(values).setColor(R.color.colorCircleWave).setCubic(true);
         List<Line> lines = new ArrayList<Line>();
         lines.add(line);
 
@@ -84,7 +82,7 @@ public class Report extends Fragment {
             axisValue2.add(new AxisValue(i,((i+1)+"").toCharArray()));
         }
 
-        Line line2 = new Line(values2).setColor(Color.BLUE).setCubic(true);
+        Line line2 = new Line(values2).setColor(R.color.colorCircleWave).setCubic(true);
         List<Line> lines2 = new ArrayList<Line>();
         lines2.add(line2);
 

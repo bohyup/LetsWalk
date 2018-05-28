@@ -3,7 +3,12 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
-    <color name="colorDarkBlue">#A4B9C6</color>
+    <color name="colorSkyBlue">#A4B9C6</color>
     <color name="colorGray">#E8EDF1</color>
     <color name="colorPuple">#BEAED4</color>
+    <color name="colorBlack">#022540</color>
+    <color name="colorDarkBlue">#04497F</color>
+    <color name="colorCircleWave">#0893FF</color>
+    <color name="colorStartBtn">#04497F</color>
+    <color name="colorBlue">#066EBF</color>
 </resources>

@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context="com.hyupb.letswalk.WalkingTrails"
-    android:background="@color/colorGray">
+    android:background="@color/colorBlack">
 
     <ListView
         android:layout_width="match_parent"
@@ -19,7 +19,7 @@
         android:id="@+id/iv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@mipmap/ic_launcher"
+        android:src="@drawable/load_news"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"/>
 

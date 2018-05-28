@@ -57,6 +57,7 @@ public class MyListAdapter extends ArrayAdapter<String> {
         contentTv.setTypeface(typeFace);
         sourceTv.setTypeface(typeFace);
 
+        try{
             String[] item = items.get(i).split("&");
 
             Glide.with(context).load(item[0]).into(iv);
@@ -66,16 +67,18 @@ public class MyListAdapter extends ArrayAdapter<String> {
 
             //한번만 받아오기(일단 임시방편으로 오류막음)
             if(i==1)
-            newsNum = Integer.parseInt(item[4]);
+                newsNum = Integer.parseInt(item[4]);
 
             Log.i("newsNum",newsNum+"");
 
             i++;
             if(i>1){
-                if(i>newsNum)
+                if(i>=newsNum)
                     i=0;
             }
-
+        }catch (Exception e){
+            Log.i("newsList","error");
+        }
 
 
         return listItem;

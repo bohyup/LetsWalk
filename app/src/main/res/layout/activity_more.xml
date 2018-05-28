@@ -9,31 +9,40 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:padding="16dp">
 
         <TextView
             android:id="@+id/more_info"
             android:layout_width="match_parent"
             android:layout_height="80dp"
             android:textSize="40sp"
+            android:textColor="@color/colorGray"
             android:gravity="center"
-            android:text="MY Info" />
+            android:text="MY Info"
+            android:layout_marginBottom="16dp"
+            android:background="@color/colorDarkBlue"/>
 
         <TextView
             android:id="@+id/more_score_upload"
             android:layout_width="match_parent"
             android:layout_height="80dp"
             android:textSize="40sp"
+            android:textColor="@color/colorGray"
             android:gravity="center"
-            android:text="Upload Steps"/>
+            android:text="Upload Steps"
+            android:layout_marginBottom="16dp"
+            android:background="@color/colorDarkBlue"/>
 
         <TextView
             android:id="@+id/more_rank"
             android:layout_width="match_parent"
             android:layout_height="80dp"
             android:textSize="40sp"
+            android:textColor="@color/colorGray"
             android:gravity="center"
-            android:text="Ranking" />
+            android:text="Ranking"
+            android:background="@color/colorDarkBlue"/>
 
     </LinearLayout>
 

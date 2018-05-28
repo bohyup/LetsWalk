@@ -5,8 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.hyupb.letswalk.Today"
-    android:padding="16dp"
-    android:background="@color/colorPuple">
+    android:padding="16dp">
 
         <ImageView
             android:id="@+id/today_reset_iv"
@@ -23,19 +22,21 @@
             android:layout_height="300dp"
             android:layout_marginTop="30dp"
             android:layout_centerHorizontal="true"
-            app:wlv_borderColor="#667788"
+            app:wlv_borderColor="@color/colorDarkBlue"
             app:wlv_borderWidth="3dp"
             app:wlv_progressValue="0"
+            app:wlv_titleTopColor="@color/colorGray"
+            app:wlv_titleBottomColor="@color/colorGray"
             app:wlv_shapeType="circle"
             app:wlv_round_rectangle="true"
             app:wlv_triangle_direction="north"
-            app:wlv_titleCenterStrokeColor="@android:color/holo_blue_dark"
+            app:wlv_titleCenterStrokeColor="@color/colorDarkBlue"
             app:wlv_titleCenterStrokeWidth="3dp"
             app:wlv_titleCenter="0"
-            app:wlv_titleCenterColor="@android:color/white"
+            app:wlv_titleCenterColor="@color/colorGray"
             app:wlv_titleCenterSize="24sp"
             app:wlv_waveAmplitude="30"
-            app:wlv_waveColor="#78ceef"/>
+            app:wlv_waveColor="@color/colorCircleWave"/>
 
 
         <android.support.v7.widget.CardView
@@ -45,11 +46,11 @@
             android:layout_below="@id/today_waveLoadingView"
             android:layout_marginTop="32dp"
             android:layout_centerHorizontal="true"
-            app:cardBackgroundColor="@color/colorDarkBlue"
+            app:cardBackgroundColor="@color/colorStartBtn"
             app:cardCornerRadius="24dp"
             android:clickable="true"
-            android:onClick="clickSP"
-            >
+            android:onClick="clickSP">
+
             <ImageView
                 android:id="@+id/today_pause_btn"
                 android:layout_width="wrap_content"
